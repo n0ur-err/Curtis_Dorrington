@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { base } from '$app/paths';
+	import Navigation from '$lib/components/Navigation.svelte';
 
 	interface Product {
 		id: number;
@@ -119,6 +120,8 @@
 <svelte:head>
 	<title>Products - Curtis Dorrington</title>
 </svelte:head>
+
+<Navigation />
 
 <div class="products-page">
 	<div class="products-container">

@@ -2,353 +2,184 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	
-	let mobileMenuOpen = $state(false);
-	
-	const navItems = [
-		{ label: 'Home', href: `${base}/`, icon: '🏠' },
-		{ label: 'Products', href: `${base}/products`, icon: '🚀' },
-		{ label: 'Career', href: `${base}/cv`, icon: '💼' },
-		{ label: 'Contact', href: '#contact', icon: '📧' }
-	];
-
-	function toggleMenu() {
-		mobileMenuOpen = !mobileMenuOpen;
-	}
-
-	function closeMenu() {
-		mobileMenuOpen = false;
-	}
+	let menuOpen = $state(false);
 </script>
 
-<nav class="nav">
-	<div class="nav-container">
-		<a href="{base}/" class="logo">
-			<span class="logo-text">Curtis</span>
-			<span class="logo-accent">Dorrington</span>
-			<span class="logo-subtitle">Product Design Engineer</span>
+<nav>
+	<div class="wrapper">
+		<a href="{base}/" class="brand">
+			<span class="first">Curtis</span>
+			<span class="last">Dorrington</span>
 		</a>
 		
-		<ul class="nav-links">
-			{#each navItems as item, index}
-				<li style="--index: {index}">
-					<a href={item.href} class="nav-link" data-text={item.label}>
-						<span class="link-icon">{item.icon}</span>
-						<span class="link-text">{item.label}</span>
-					</a>
-				</li>
-			{/each}
-		</ul>
+		<div class="links">
+			<a href="{base}/" class:active={$page.url.pathname === `${base}/`}>Home</a>
+			<a href="{base}/products" class:active={$page.url.pathname.includes('products')}>Products</a>
+			<a href="{base}/cv" class:active={$page.url.pathname.includes('cv')}>Career</a>
+			<a href="#contact">Contact</a>
+		</div>
 
-		<button class="mobile-toggle" onclick={toggleMenu} aria-label="Toggle menu">
-			<span class="hamburger" class:active={mobileMenuOpen}></span>
+		<button class="menu-btn" onclick={() => menuOpen = !menuOpen}>
+			<span></span>
+			<span></span>
+			<span></span>
 		</button>
 	</div>
 
-	{#if mobileMenuOpen}
-		<div class="mobile-menu" onclick={closeMenu}>
-			<ul class="mobile-links">
-				{#each navItems as item}
-					<li>
-						<a href={item.href}>
-							<span class="mobile-icon">{item.icon}</span>
-							{item.label}
-						</a>
-					</li>
-				{/each}
-			</ul>
+	{#if menuOpen}
+		<div class="mobile-menu">
+			<a href="{base}/" onclick={() => menuOpen = false}>Home</a>
+			<a href="{base}/products" onclick={() => menuOpen = false}>Products</a>
+			<a href="{base}/cv" onclick={() => menuOpen = false}>Career</a>
+			<a href="#contact" onclick={() => menuOpen = false}>Contact</a>
 		</div>
 	{/if}
 </nav>
 
 <style>
-	.nav {
+	nav {
 		position: fixed;
 		top: 0;
 		left: 0;
 		right: 0;
 		z-index: 1000;
 		background: rgba(13, 13, 13, 0.95);
-		backdrop-filter: blur(30px);
-		border-bottom: 1px solid rgba(255, 51, 102, 0.1);
-		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+		backdrop-filter: blur(20px);
+		border-bottom: 1px solid rgba(255, 51, 102, 0.15);
 	}
 
-	.nav::after {
-		content: '';
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		height: 1px;
-		background: linear-gradient(90deg, 
-			transparent 0%, 
-			var(--c-accent) 50%, 
-			transparent 100%);
-		opacity: 0.3;
-	}
-
-	.nav-container {
+	.wrapper {
 		max-width: 1400px;
 		margin: 0 auto;
 		display: flex;
-		justify-content: space-between;
 		align-items: center;
+		justify-content: space-between;
 		padding: 1.5rem 3rem;
 	}
 
-	.logo {
-		display: flex;
-		flex-direction: column;
-		gap: 0.25rem;
-		text-decoration: none;
-		position: relative;
-	}
-
-	.logo-text {
-		font-size: 1.5rem;
-		font-weight: 900;
-		color: var(--c-text);
-		letter-spacing: -0.03em;
-		line-height: 1;
-		transition: transform 0.3s;
-	}
-
-	.logo-accent {
-		font-size: 1.5rem;
-		font-weight: 900;
-		background: linear-gradient(135deg, var(--c-accent) 0%, var(--c-accent-2) 100%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-		letter-spacing: -0.03em;
-		line-height: 1;
-		transition: transform 0.3s;
-	}
-
-	.logo-subtitle {
-		font-size: 0.65rem;
-		color: var(--c-text-secondary);
-		text-transform: uppercase;
-		letter-spacing: 0.15em;
-		font-weight: 600;
-		margin-top: 0.25rem;
-	}
-
-	.logo:hover .logo-text {
-		transform: translateX(-2px);
-	}
-
-	.logo:hover .logo-accent {
-		transform: translateX(2px);
-	}
-
-	.nav-links {
-		list-style: none;
+	.brand {
 		display: flex;
 		gap: 0.5rem;
+		font-size: 1.25rem;
+		font-weight: 700;
+		text-decoration: none;
+		letter-spacing: -0.02em;
+	}
+
+	.first {
+		color: #fff;
+	}
+
+	.last {
+		color: var(--c-accent);
+	}
+
+	.links {
+		display: flex;
+		gap: 2.5rem;
 		align-items: center;
 	}
 
-	.nav-links li {
-		animation: slideDown 0.4s ease-out backwards;
-		animation-delay: calc(var(--index) * 0.1s);
-	}
-
-	@keyframes slideDown {
-		from {
-			opacity: 0;
-			transform: translateY(-20px);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-
-	.nav-link {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		padding: 0.75rem 1.25rem;
+	.links a {
+		color: rgba(255, 255, 255, 0.65);
 		text-decoration: none;
-		color: var(--c-text);
 		font-size: 0.95rem;
-		font-weight: 600;
-		border-radius: 8px;
+		font-weight: 500;
+		transition: color 0.2s;
 		position: relative;
-		overflow: hidden;
-		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	}
 
-	.nav-link::before {
+	.links a::before {
 		content: '';
 		position: absolute;
-		inset: 0;
-		background: linear-gradient(135deg, var(--c-accent) 0%, var(--c-accent-2) 100%);
-		opacity: 0;
-		transition: opacity 0.3s;
+		bottom: -6px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 0;
+		height: 2px;
+		background: var(--c-accent);
+		transition: width 0.2s;
 	}
 
-	.nav-link::after {
-		content: attr(data-text);
-		position: absolute;
-		left: 0;
-		right: 0;
-		bottom: -2px;
-		font-size: 0.7rem;
-		font-weight: 700;
-		text-align: center;
-		color: var(--c-accent);
-		opacity: 0;
-		transform: translateY(10px);
-		transition: all 0.3s;
+	.links a:hover,
+	.links a.active {
+		color: #fff;
 	}
 
-	.nav-link:hover::before {
-		opacity: 0.1;
+	.links a:hover::before,
+	.links a.active::before {
+		width: 100%;
 	}
 
-	.nav-link:hover {
-		transform: translateY(-2px);
-		color: var(--c-accent);
-	}
-
-	.link-icon {
-		font-size: 1.1rem;
-		transition: transform 0.3s;
-	}
-
-	.nav-link:hover .link-icon {
-		transform: scale(1.2) rotate(5deg);
-	}
-
-	.link-text {
-		position: relative;
-		z-index: 1;
-	}
-
-	.mobile-toggle {
+	.menu-btn {
 		display: none;
+		flex-direction: column;
+		gap: 5px;
 		background: none;
 		border: none;
 		cursor: pointer;
-		padding: 0.5rem;
-		z-index: 1001;
+		padding: 8px;
 	}
 
-	.hamburger {
+	.menu-btn span {
 		display: block;
-		width: 30px;
-		height: 2px;
-		background: var(--c-accent);
-		position: relative;
-		transition: all 0.3s;
-	}
-
-	.hamburger::before,
-	.hamburger::after {
-		content: '';
-		position: absolute;
-		width: 30px;
+		width: 24px;
 		height: 2px;
 		background: var(--c-accent);
 		transition: all 0.3s;
-	}
-
-	.hamburger::before {
-		top: -8px;
-	}
-
-	.hamburger::after {
-		bottom: -8px;
-	}
-
-	.hamburger.active {
-		background: transparent;
-	}
-
-	.hamburger.active::before {
-		top: 0;
-		transform: rotate(45deg);
-	}
-
-	.hamburger.active::after {
-		bottom: 0;
-		transform: rotate(-45deg);
 	}
 
 	.mobile-menu {
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: rgba(13, 13, 13, 0.98);
-		backdrop-filter: blur(20px);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		animation: fadeIn 0.3s ease-out;
-	}
-
-	@keyframes fadeIn {
-		from {
-			opacity: 0;
-		}
-		to {
-			opacity: 1;
-		}
-	}
-
-	.mobile-links {
-		list-style: none;
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
-		text-align: center;
-	}
-
-	.mobile-links a {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 1rem;
-		font-size: 2rem;
-		font-weight: 700;
-		color: var(--c-text);
-		text-decoration: none;
-		transition: all 0.3s;
-	}
-
-	.mobile-links a:hover {
-		color: var(--c-accent);
-		transform: translateX(10px);
-	}
-
-	.mobile-icon {
-		font-size: 2.5rem;
+		display: none;
 	}
 
 	@media (max-width: 768px) {
-		.nav-container {
-			padding: 1rem 1.5rem;
+		.wrapper {
+			padding: 1.25rem 2rem;
 		}
 
-		.logo-text,
-		.logo-accent {
-			font-size: 1.2rem;
+		.brand {
+			font-size: 1.1rem;
 		}
 
-		.logo-subtitle {
-			font-size: 0.55rem;
-		}
-
-		.nav-links {
+		.links {
 			display: none;
 		}
 
-		.mobile-toggle {
-			display: block;
+		.menu-btn {
+			display: flex;
+		}
+
+		.mobile-menu {
+			display: flex;
+			flex-direction: column;
+			padding: 1rem 2rem 2rem;
+			gap: 1.5rem;
+			background: rgba(13, 13, 13, 0.98);
+			border-top: 1px solid rgba(255, 51, 102, 0.1);
+		}
+
+		.mobile-menu a {
+			color: rgba(255, 255, 255, 0.7);
+			text-decoration: none;
+			font-size: 1.1rem;
+			font-weight: 500;
+			padding: 0.5rem 0;
+			transition: color 0.2s;
+		}
+
+		.mobile-menu a:hover {
+			color: var(--c-accent);
+		}
+	}
+
+	@media (max-width: 600px) {
+		.wrapper {
+			padding: 1rem 1.5rem;
+		}
+
+		.brand {
+			font-size: 1rem;
 		}
 	}
 </style>

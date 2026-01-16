@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { base } from '$app/paths';
+	import Navigation from '$lib/components/Navigation.svelte';
 
 	interface Experience {
 		id: number;
@@ -143,6 +144,8 @@
 <svelte:head>
 	<title>CV - Curtis Dorrington</title>
 </svelte:head>
+
+<Navigation />
 
 <div class="cv-page">
 	<div class="cv-container">
