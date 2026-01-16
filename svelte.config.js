@@ -10,6 +10,15 @@ const config = {
 		}),
 		paths: {
 			base: process.env.NODE_ENV === 'production' ? '/Curtis_Dorrington' : ''
+		},
+		prerender: {
+			handleHttpError: ({ path, referrer, message }) => {
+				// Ignore favicon errors
+				if (path.includes('favicon')) {
+					return;
+				}
+				throw new Error(message);
+			}
 		}
 	}
 };
