@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { base } from '$app/paths';
+
 	interface Experience {
 		id: number;
 		company: string;
@@ -184,7 +186,7 @@
 		</div>
 
 		<footer class="cv-footer">
-			<a href="/" class="back-button">
+			<a href="{base}/" class="back-button">
 				<svg width="20" height="20" viewBox="0 0 20 20" fill="none">
 					<path d="M15 10H5M5 10L10 5M5 10L10 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 				</svg>

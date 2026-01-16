@@ -1,14 +1,16 @@
 <script lang="ts">
+	import { base } from '$app/paths';
+	
 	const navItems = [
-		{ label: 'Home', href: '/' },
-		{ label: 'Products', href: '/products' },
-		{ label: 'Career', href: '/cv' },
+		{ label: 'Home', href: `${base}/` },
+		{ label: 'Products', href: `${base}/products` },
+		{ label: 'Career', href: `${base}/cv` },
 		{ label: 'Contact', href: '#contact' }
 	];
 </script>
 
 <nav class="nav">
-	<a href="#home" class="logo">Curtis Dorrington</a>
+	<a href="{base}/" class="logo">Curtis Dorrington</a>
 	<ul class="nav-links">
 		{#each navItems as item}
 			<li><a href={item.href}>{item.label}</a></li>
