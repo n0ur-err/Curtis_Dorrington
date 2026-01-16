@@ -12,6 +12,9 @@ const config = {
 			precompress: false,
 			strict: false
 		}),
+		paths: {
+			base: '/Curtis_Dorrington'
+		},
 		prerender: {
 			handleHttpError: ({ path, referrer, message }) => {
 				if (path.includes('favicon')) return;
