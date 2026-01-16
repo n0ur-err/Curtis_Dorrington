@@ -38,6 +38,6 @@ declare module "$app/types" {
 		};
 		Pathname(): "/" | "/cv" | "/cv/" | "/products" | "/products/";
 		ResolvedPathname(): `${"" | `/${string}`}${ReturnType<AppTypes['Pathname']>}`;
-		Asset(): string & {};
+		Asset(): "/img/ADDSTRAP.webp" | "/img/Credit_Card.webp" | "/img/disposable_vapes.webp" | "/img/Flava_Tips.webp" | "/img/IMG_6332_1.webp" | "/img/IMG_6684.webp" | "/img/Impervious_Drip_tips.webp" | "/img/Quick_Caps_Aldridge.webp" | "/img/T-Shirt_Printer.webp" | "/img/Vape_Any_Wear.webp" | string & {};
 	}
 }

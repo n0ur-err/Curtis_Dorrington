@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { base } from '$app/paths';
+
 	interface Product {
 		id: number;
 		title: string;
@@ -19,7 +21,7 @@
 			year: '2015',
 			tags: ['Patent', 'Dragons Den', 'Kickstarter'],
 			size: 'large',
-			image: '/src/img/Quick_Caps_Aldridge.webp'
+			image: `${base}/img/Quick_Caps_Aldridge.webp`
 		},
 		{
 			id: 2,
@@ -29,7 +31,7 @@
 			year: '2017',
 			tags: ['Investment Funded', 'Materials', 'UK Manufacturing'],
 			size: 'large',
-			image: '/src/img/Vape_Any_Wear.webp'
+			image: `${base}/img/Vape_Any_Wear.webp`
 		},
 		{
 			id: 3,
@@ -39,7 +41,7 @@
 			year: '2018',
 			tags: ['Healthcare', 'Diabetes', 'Self Funded'],
 			size: 'medium',
-			image: '/src/img/ADDSTRAP.webp'
+			image: `${base}/img/ADDSTRAP.webp`
 		},
 		{
 			id: 4,
@@ -49,7 +51,7 @@
 			year: '2016',
 			tags: ['World First', 'Partnership', 'Scent Tech'],
 			size: 'medium',
-			image: '/src/img/Flava_Tips.webp'
+			image: `${base}/img/Flava_Tips.webp`
 		},
 		{
 			id: 5,
@@ -59,7 +61,7 @@
 			year: '2019',
 			tags: ['E-Commerce', 'Platform', 'Print'],
 			size: 'medium',
-			image: '/src/img/T-Shirt_Printer.webp'
+			image: `${base}/img/T-Shirt_Printer.webp`
 		},
 		{
 			id: 6,
@@ -69,7 +71,7 @@
 			year: '2016',
 			tags: ['Certified', 'Anti-Microbial', 'Innovation'],
 			size: 'medium',
-			image: '/src/img/Impervious_Drip_tips.webp'
+			image: `${base}/img/Impervious_Drip_tips.webp`
 		}
 	];
 </script>

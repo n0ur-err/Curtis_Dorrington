@@ -27,7 +27,7 @@
 			fullDesc: 'Self drafted granted international patent. Dragons Den Type Investment Funded. Crowd Funded Via Kickstarter. UK and International manufacturing & assembly. Die Casting, Extruding, CNC machining. Design to Manufacture - Worldwide sales and distribution.',
 			year: '2015',
 			tags: ['Patent', 'Dragons Den', 'Kickstarter', 'Manufacturing'],
-			image: '/src/img/Quick_Caps_Aldridge.webp',
+			image: `${base}/img/Quick_Caps_Aldridge.webp`,
 			stats: [
 				{ label: 'Funding', value: 'Dragons Den + Kickstarter' },
 				{ label: 'Distribution', value: 'Worldwide' },
@@ -42,7 +42,7 @@
 			fullDesc: 'Investment Funded. UK manufacturing & assembly. Material Sciences, Principles of material attraction, and filtration. Design to Manufacture - Worldwide sales and distribution.',
 			year: '2017',
 			tags: ['Investment Funded', 'Materials', 'UK Manufacturing', 'Filtration'],
-			image: '/src/img/Vape_Any_Wear.webp',
+			image: `${base}/img/Vape_Any_Wear.webp`,
 			stats: [
 				{ label: 'Technology', value: 'Material Sciences' },
 				{ label: 'Manufacturing', value: 'UK Assembly' },
@@ -57,7 +57,7 @@
 			fullDesc: 'Modular carry solution for temp controlled medicines. Self Funded. UK manufacturing & assembly. Health Care Specific to Diabetes. Design to Manufacture.',
 			year: '2018',
 			tags: ['Healthcare', 'Diabetes', 'Self Funded', 'Modular'],
-			image: '/src/img/ADDSTRAP.webp',
+			image: `${base}/img/ADDSTRAP.webp`,
 			stats: [
 				{ label: 'Market', value: 'Healthcare / Diabetes' },
 				{ label: 'Funding', value: 'Self Funded' },
@@ -72,7 +72,7 @@
 			fullDesc: 'Worlds first flavour enhancing vape mouth piece. Investment Funded. UK manufacturing & assembly. Injection Moulding, Scent Infusion. Partnered with largest UK Aroma Company. Design to Manufacture. UK Distribution.',
 			year: '2016',
 			tags: ['World First', 'Partnership', 'Scent Tech', 'Injection Moulding'],
-			image: '/src/img/Flava_Tips.webp',
+			image: `${base}/img/Flava_Tips.webp`,
 			stats: [
 				{ label: 'Innovation', value: 'World First' },
 				{ label: 'Partnership', value: 'UK Largest Aroma Co.' },
@@ -87,7 +87,7 @@
 			fullDesc: 'Fully customer focused for print on demand products. Self Funded. UK manufacturing & assembly. High end Custom Clothing. Design to Manufacture.',
 			year: '2019',
 			tags: ['E-Commerce', 'Platform', 'Print', 'Custom Clothing'],
-			image: '/src/img/T-Shirt_Printer.webp',
+			image: `${base}/img/T-Shirt_Printer.webp`,
 			stats: [
 				{ label: 'Type', value: 'E-Commerce Platform' },
 				{ label: 'Focus', value: 'Customer-Centric' },
@@ -102,7 +102,7 @@
 			fullDesc: 'Certified anti-microbial, hot liquid dispersing vape accessory. Investment Funded. UK manufacturing & assembly. Injection Moulding. Design to Manufacture. UK Distribution.',
 			year: '2016',
 			tags: ['Certified', 'Anti-Microbial', 'Innovation', 'Thermal'],
-			image: '/src/img/Impervious_Drip_tips.webp',
+			image: `${base}/img/Impervious_Drip_tips.webp`,
 			stats: [
 				{ label: 'Certification', value: 'Anti-Microbial' },
 				{ label: 'Technology', value: 'Thermal Dispersion' },
