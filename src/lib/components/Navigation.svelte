@@ -8,10 +8,10 @@
 </script>
 
 <nav class="nav">
-	<a href="/" class="logo">Curtis Dorrington</a>
+	<a href="#home" class="logo">Curtis Dorrington</a>
 	<ul class="nav-links">
 		{#each navItems as item}
-			<li><a href={item.href} data-sveltekit-preload-data>{item.label}</a></li>
+			<li><a href={item.href}>{item.label}</a></li>
 		{/each}
 	</ul>
 </nav>

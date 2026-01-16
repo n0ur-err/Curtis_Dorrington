@@ -130,10 +130,7 @@
 				<article 
 					class="product-card" 
 					class:expanded={expandedId === product.id}
-					role="button"
-					tabindex="0"
 					onclick={() => toggleExpand(product.id)}
-					onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && toggleExpand(product.id)}
 				>
 					<div class="card-inner">
 						<div class="card-front">
