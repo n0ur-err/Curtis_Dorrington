@@ -1,5 +1,12 @@
 {
-	"/": [],
-	"/cv": [],
-	"/products": []
+	"/": [
+		"src/routes/+layout.ts",
+		"src/routes/+layout.ts"
+	],
+	"/cv": [
+		"src/routes/+layout.ts"
+	],
+	"/products": [
+		"src/routes/+layout.ts"
+	]
 }
